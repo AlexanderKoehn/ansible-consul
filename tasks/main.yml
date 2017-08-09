@@ -240,12 +240,15 @@
         wait_for:
           delay: 15
           port: "{{consul_ports.http|int}}"
+          host: "{{consul_http_bind_address}}"
+          timeout: 15
         when: (consul_ports.http|int > -1) and (consul_http_bind_address|ipaddr)
 
       - name: Check Consul HTTP API (via unix socket)
         wait_for:
           delay: 15
           path: "{{ consul_http_bind_address | replace('unix://', '', 1) }}"
+          timeout: 15
         when: consul_http_bind_address | match("unix://*")
 
       - name: Create bootstrapped state file

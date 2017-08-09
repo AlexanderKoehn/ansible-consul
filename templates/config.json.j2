@@ -10,6 +10,7 @@
 
     {## Addresses ##}
     "bind_addr": "{{ consul_bind_address }}",
+    "client_addr": "{{ consul_client_address }}",
     "addresses": {
       {% if consul_dns_bind_address | trim != '' %}
         "dns": "{{ consul_dns_bind_address }}",
