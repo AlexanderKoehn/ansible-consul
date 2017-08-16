@@ -109,6 +109,9 @@ consul_acl_master_token_display: "{{ lookup('env','CONSUL_ACL_MASTER_TOKEN_DISPL
 consul_acl_replication_token_display: "{{ lookup('env','CONSUL_ACL_REPLICATION_TOKEN_DISPLAY') | default(false, true) }}"
 consul_acl_policy: false
 
+## Encryption
+consul_encryption_enable: true
+
 ## TLS
 consul_tls_enable: "{{ lookup('env','CONSUL_TLS_ENABLE') | default(false, true) }}"
 consul_tls_src_files: "{{ lookup('env','CONSUL_TLS_SRC_FILES') | default(role_path+'/files', true) }}"
